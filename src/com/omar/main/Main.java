@@ -12,7 +12,7 @@ package com.omar.main;
 public class Main extends javax.swing.JFrame {
 
     /**
-     * Creates new form Main
+     * Creates new form Mains
      */
     public Main() {
         initComponents();
