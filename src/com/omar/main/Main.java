@@ -1,5 +1,6 @@
 package com.omar.main;
 
+import com.omar.model.ModelMenu;
 import java.awt.Color;
 
 /**
@@ -19,6 +20,10 @@ public class Main extends javax.swing.JFrame {
     private void init() {
         
         setBackground(new Color(0, 0, 0, 0));  // Remove background color
+        list1.addItem(new ModelMenu("PlayList", "playlist"));
+        list1.addItem(new ModelMenu("Artists", "artists"));
+        list1.addItem(new ModelMenu("Albums", "albums"));
+        list1.addItem(new ModelMenu("Songs", "song"));
         
     }
     
@@ -29,6 +34,7 @@ public class Main extends javax.swing.JFrame {
 
         panel1 = new com.omar.swing.Panel();
         menu1 = new com.omar.component.Menu();
+        list1 = new com.omar.component.ListMenu<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -39,11 +45,14 @@ public class Main extends javax.swing.JFrame {
         menu1.setLayout(menu1Layout);
         menu1Layout.setHorizontalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
         );
         menu1Layout.setVerticalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGroup(menu1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -52,13 +61,13 @@ public class Main extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 598, Short.MAX_VALUE))
+                .addGap(0, 611, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 214, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,6 +126,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.omar.component.ListMenu<String> list1;
     private com.omar.component.Menu menu1;
     private com.omar.swing.Panel panel1;
     // End of variables declaration//GEN-END:variables

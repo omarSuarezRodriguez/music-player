@@ -37,6 +37,9 @@ public class ListMenu<E extends Object> extends JList<E>{
                     data = new ModelMenu("No Data", "song");
                 }
                 
+                ItemMenu item = new ItemMenu(data);
+                item.setSelected(selected);
+                return item;
             }
           
         };

@@ -1,6 +1,10 @@
 package com.omar.component;
 
 import com.omar.model.ModelMenu;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 /**
  *
@@ -16,9 +20,13 @@ public class ItemMenu extends javax.swing.JPanel {
     
         this.selected = selected;
         if (selected) {
-            
+            lblText.setFont(new java.awt.Font("SansSerif", 1, 14)); 
+            lblText.setForeground(Color.WHITE);
+            lblIcon.setIcon(data.toIconSelected());
         } else {
-            
+            lblText.setFont(new java.awt.Font("SansSerif", 0, 14)); 
+            lblText.setForeground(new Color(204, 204, 204));
+            lblIcon.setIcon(data.toIcon());
         }
         
     }
@@ -74,4 +82,27 @@ public class ItemMenu extends javax.swing.JPanel {
     private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblText;
     // End of variables declaration//GEN-END:variables
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    @Override
+    protected void paintComponent(Graphics grphcs) {
+        
+        if (selected) {
+            Graphics2D g2 = (Graphics2D) grphcs;
+            g2.setColor(Color.WHITE);
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.fillRect(0, 0, 2, getHeight());
+        } 
+        
+        super.paintComponent(grphcs); 
+    }
+    
+    
+    
+    
+    
+    
 }
